@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Filterable List</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class = center-align>My Contacts!</h1>
+        <input type="text" placeholder="search contacts..." id="submit">
+        <ul id="collection-list" class="collection with-header">
+            <li class="collection-header">
+                <h5>A</h5>
+            </li>
+            <li class="collection-item">
+                <a href="#">Abc</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Adfg</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Atgf</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Asthb</a>
+            </li>
+            <li class="collection-header">
+                <h5>B</h5>
+            </li>
+            <li class="collection-item">
+                <a href="#">Bbrt</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Bertg</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Bghkn</a>
+            </li>
+            <li class="collection-header">
+                <h5>C</h5>
+            </li>
+            <li class="collection-item">
+                <a href="#">Csdhc</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Claskgg</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Chtrhf</a>
+            </li>
+        </ul>
+    </div>
+        <script>
+            var filterInput = document.getElementById('submit');
+            filterInput.addEventListener('keyup',filter);
+            function filter(e){
+                let inptext = document.getElementById('submit').value.toUpperCase();
+                // console.log(inptext);
+                const ul = document.getElementById('collection-list');
+                // console.log(ul);
+                const li = ul.querySelectorAll('li.collection-item');
+                // console.log(li);
+                for(var i=0;i<li.length;i++)
+                {
+                    var a = li[i].getElementsByTagName('a')[0];
+                    console.log(a);
+                    if(a.innerHTML.toUpperCase().indexOf(inptext) >-1){
+                        li[i].style.display = '';
+                    }
+                    else{
+                        li[i].style.display = 'none';
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
